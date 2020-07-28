@@ -1,30 +1,18 @@
+const path = require("path");
+
 module.exports = {
-  devtool: "eval-source-map",
-  entry: __dirname + "/app/main.js", 
+  entry: "./src/main.js",
   output: {
-    path: __dirname + "/public", 
-    filename: "bundle.js", 
+    filename: "main.js",
+    path: path.resolve(__dirname, "dist"),
   },
   module: {
-    loaders: [
+    rules: [
+      { test: /\.css$/, use: ["style-loader", "css-loader"] },
       {
-        test: /\.json$/,
-        loader: "json-loader",
-      },
-      {
-        test: /\.css$/,
-        loader: "style-loader!css-loader?modules",
-      },
-      {
-        test: /\.vue$/,
-        loader: "vue-loader",
+        test: /\.(png|svg|jpg|gif|ico)$/,
+        use: ["file-loader"],
       },
     ],
-  },
-  devServer: {
-    contentBase: "./public", 
-    colors: true, 
-    historyApiFallback: true, 
-    inline: true,
   },
 };
