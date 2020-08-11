@@ -10,8 +10,27 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-proposal-decorators": "^7.10.5",
+    "@babel/preset-flow": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "exports-loader": "^1.1.0",
+    "imports-loader": "^1.1.0",
     "lodash": "^4.17.19",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-flow"
+    ],
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ]
+    ]
   }
 }
